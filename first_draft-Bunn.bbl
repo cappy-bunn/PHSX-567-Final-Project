@@ -1,4 +1,4 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,5 +19,47 @@ C.~E. Bunn, K.~S. Repasky, M.~Hayman, R.~A. Stillwell, and S.~M. Spuler.
 \newblock Perturbative solution to the two component atmosphere dial equation
   for improving the accuracy of the retrieved absorption coefficient.
 \newblock in prep.
+
+\bibitem[Jacobson(2001)]{Jacobson1999}
+Mark Jacobson.
+\newblock Fundamentals of atmospheric modeling.
+\newblock \emph{Climatic Change}, 50\penalty0 (1):\penalty0 251--253, July
+  2001.
+\newblock ISSN 0165-0009.
+
+\bibitem[Hayman and Spuler(2017)]{Hayman2017}
+Matthew Hayman and Scott Spuler.
+\newblock Demonstration of a diode-laser-based high spectral resolution lidar
+  (hsrl) for quantitative profiling of clouds and aerosols.
+\newblock \emph{Opt. Express}, 25\penalty0 (24):\penalty0 A1096--A1110, Nov
+  2017.
+\newblock \doi{10.1364/OE.25.0A1096}.
+\newblock URL
+  \url{http://www.opticsexpress.org/abstract.cfm?URI=oe-25-24-A1096}.
+
+\bibitem[Spuler et~al.(2015)Spuler, Repasky, Morley, Moen, Hayman, and
+  Nehrir]{Spuler2015}
+S.~M. Spuler, K.~S. Repasky, B.~Morley, D.~Moen, M.~Hayman, and A.~R. Nehrir.
+\newblock Field-deployable diode-laser-based differential absorption lidar
+  (dial) for profiling water vapor.
+\newblock \emph{Atmospheric Measurement Techniques}, 8\penalty0 (3):\penalty0
+  1073--1087, 2015.
+\newblock \doi{10.5194/amt-8-1073-2015}.
+\newblock URL \url{https://www.atmos-meas-tech.net/8/1073/2015/}.
+
+\bibitem[Korb and Weng(1982)]{Korb1982}
+C.~Laurence Korb and Chi~Y. Weng.
+\newblock A theoretical study of a two-wavelength lidar technique for the
+  measurement of atmospheric temperature profiles.
+\newblock \emph{Journal of Applied Meteorology}, 21\penalty0 (9):\penalty0
+  1346--1355, 1982.
+\newblock \doi{10.1175/1520-0450(1982)021<1346:ATSOAT>2.0.CO;2}.
+\newblock URL
+  \url{https://doi.org/10.1175/1520-0450(1982)021<1346:ATSOAT>2.0.CO;2}.
+
+\bibitem[{Measures}(1984)]{Measures1984}
+R.~M. {Measures}.
+\newblock \emph{{Laser remote sensing: Fundamentals and applications}}.
+\newblock 1984.
 
 \end{thebibliography}
