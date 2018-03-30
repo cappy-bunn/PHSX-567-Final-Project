@@ -1,0 +1,248 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.3 (9/9/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside]{article}
+
+\usepackage{graphicx}
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+\usepackage{amsmath}
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{PHSX567 Final Project First Draft $\bullet$ \today } % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%\usepackage{fixltx2e} % Added by Cappy
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{22pt}{10pt}\selectfont\textbf{Iterative approach to atmospheric temperature profiles using retrievals from the LAFE field campaign}} % Article title
+\author{
+\large
+\textsc{Catharine E. Bunn}\\[2mm] % Your name
+\normalsize Montana State University \\ % Your institution
+\normalsize \href{mailto:catharine.bunn@montana.edu}{catharine.bunn@montana.edu} % Your email address
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+\section{Abstract}
+Temperature is an important parameter when considering the state of the atmosphere and its processes. 
+A method of atmospheric temperature retrieval discussed in Bosenberg [1] involves using differential absorption lidar (DIAL) as a means of finding the temperature sensitive absorption coefficient of a molecule with a known mixing ratio, such as diatomic oxygen. 
+However the absorption coefficient has a non-linear dependence on temperature and therefore cannot be solved analytically; an iterative approach must then be used to complete the temperature retrieval.
+ The accuracy of this retrieval method has been demonstrated using a modeled atmosphere [2]. 
+ This paper will use this same retrieval method, but applying it to atmospheric data collected from the LAFE (Land Atmosphere Feedback Experiment) field campaign, which took place in August of 2017 at the Southern Great Plains atmospheric observatory in Oklahoma. 
+ The data from this experiment includes aerosol and molecular backscatter measurements from an HSRL as well as water vapor profiles from a water vapor DIAL, which are ancillary information necessary for finding the absorption coefficient and temperature profiles.
+
+\section{Introduction}
+The DIAL method of temperature profiling relies on the measurement of the temperature dependent absorption coefficient of a molecule with a known mixing ratio (number of molecules of gas divided by total number of molecules of air). 
+The absorption lines of oxygen in the near-infrared around 770 nm are suitably temperature sensitive [1] and the mixing ratio of oxygen is reliably stable, known to be 20.95\% [3]. 
+The absorption coefficient is found by measuring the backscatter signal from two closely spaced wavelengths; one associated with the absorption feature (known as the online wavelength) and the other is unaffected by it (known as the offline wavelength). 
+Comparing these two signals and accounting for the Doppler-broadened Rayleigh scattering, Mie scattering off of aerosols, and spectroscopic details of the absorption feature will allow for the retrieval of the absorption coefficient. 
+The returns from an O\textsubscript{2} DIAL that will be used in this paper are the same model used in a manuscript currently being prepared by Bunn et al. [2]\\
+\par
+\noindent The DIAL equation used to calculate the absorption coefficient is given by [1]
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -\alpha_{u,eff,1}(r) + \alpha_{u,eff,2}(r) -\alpha_{d,eff,1}(r) +\alpha_{d,eff,2}(r) + G_1(r) - G_2(r)
+\end{equation}
+
+\noindent where $N(r)$ is the return signal from range $r$ and the subscripts 1 and 2 indicate online and offline wavelengths respectively. 
+The differential range $\Delta R = \frac{c \tau}{2}$ is the bin size where $c$ is the speed of light and $\tau$ is the pulse duration. 
+The effective absorption coefficients for outgoing and return signals (indicated by subscripts $u$ and $d$ respectively) for the online wavelength are given by
+
+\begin{align}
+	\alpha_{u,eff,1}(r) &= \frac{\int h_1(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int h_1(\nu) T_{m,1}(\nu,r) d\nu}\\
+	\alpha_{d,eff,1}(r) &= \frac{\int g(\nu,r) E(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int g(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}
+\end{align}
+
+\noindent where $h_1(\nu)$ is the online laser lineshape, $\alpha_{m,1}(\nu,r)$ is the molecular absorption coefficient, $T_{m,1}(\nu,r) = \exp\left[-\int^r_0 \alpha_{m,1}(\nu,r')dr'\right]$ is the one-way transmission due to molecular absorption, and $E(\nu)$ is the DIAL receiver spectral filter transmission function. 
+In Equation 3, the term
+
+\begin{equation}
+	g(\nu,r) = \frac{\beta_a(r)}{\beta(r)} h_{HSRL}(\nu) + \frac{\beta_m(r)}{\beta(r)} (h_{HSRL}(\nu)\ast l(\nu,r))
+\end{equation}
+\noindent is the lineshape of the backscattered light where $\beta_a(r)$, $\beta_m(r)$, and $\beta(r)$ are the aerosol, molecular, and total backscatter profiles respectively, $h_{HSRL}$ is the HSRL laser lineshape, and $l(\nu,r)$ is the Doppler-broadened lineshape. 
+The effective absorption coefficients for the offline wavelength, $\alpha_{u,eff,2}(r)$ and $\alpha_{d,eff,2}(r)$, have the same form as Equations 2 and 3.
+\\
+\\
+The terms $G_1(r)$ and $G_2(r)$ are correction terms that help account for changes in the spectral distribution due to Doppler broadening of the scattered return signal, given by
+
+\begin{equation}
+	G_1(r) = \frac{\int \frac{dg(\nu,r)}{dr} E(\nu) T_{m,1}(\nu,r) d\nu}{\int g(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}.
+\end{equation}
+\noindent The correction term $G_2(r)$ is written in the same form for the offline wavelength.
+\\
+\\
+This paper will rely on a perturbative solution to the DIAL equation (Equation 1) developed in a manuscript that is currently being prepared by Bunn et al. [2], which calculates the absorption coefficient while providing a means of accounting for the Doppler broadening of the elastically scattered light. 
+This solution also relies on the aerosol and molecular backscatter profiles, which will be provided by HSRL measurements [4] taken at the LAFE field campaign.
+\\
+\\
+With the absorption coefficient found from the perturbative method, we now use the following equation to retrieve the temperature profile:
+
+\begin{equation}
+	\alpha (r) = q_{O_2} (1 - q_{H_2 O}) \frac{P}{k_B T} S(T,\epsilon) \Lambda_V(\nu - \nu_0,P,T)
+\end{equation} 
+\noindent where $q_{O_2}$ and $q_{H_2 O}$ are the mixing ratios of O\textsubscript{2} and H\textsubscript{2}O (the latter of which is highly variable and will be provided by water vapor DIAL measurements [5] taken at the LAFE field campaign), $P$ is the pressure, $k_B$ is the Boltzmann constant, $T$ is the temperature, $S(T,\epsilon)$ is the temperature dependent line strength of the absorption feature, $\epsilon$ is the ground state energy, and $\Lambda_V(\nu - \nu_0,P,T)$ is the normalized Voight lineshape function.
+\\
+\\
+The temperature dependent line strength is given by [6]
+\begin{equation}
+	S(T,\epsilon) = S_0 \frac{T_0}{T} \exp \left[-\frac{\epsilon}{k_B}\left( \frac{1}{T}-\frac{1}{T_0}\right) \right]
+\end{equation}
+\noindent where $S_0$ is the line strength at temperature $T_0$. 
+\\
+\\
+The perturbative solution relies on an initial guess at the temperature profile in order to complete the inversion. 
+If this guess differs from the actual profile, errors in the retrieval of the absorption coefficient will occur, so an iterative approach must be used.
+ The initial guess at the temperature profile will give an initial absorption coefficient, which is then used to retrieve the temperature profile. 
+ This new temperature profile is then used to complete the inversion again, providing an updated absorption coefficient and temperature profile. 
+ This process is repeated until the input temperature profile matches the retrieved profile. 
+ This iterative solution to Equation 6 is given here and has been shown to converge rapidly [6]:
+
+\begin{equation}
+	T_{i+1} = \frac{\epsilon/k_B}{ln[C q_{O_2} (1 - q_{H_2 O}) \Lambda_V (T_i)] - ln(\alpha T_i^2 / P)}
+\end{equation}
+
+\noindent where $C = \frac{T_0}{k_B} S_0 \exp\left(\frac{\epsilon}{k_B T_0}\right)$.
+
+\section{LAFE Data Processing}
+
+It is necessary to have an initial guess of the temperature profile.
+The LAFE data fulfills this requirement because it includes temperature and pressure profiles based off of a surface measurement at the instrument's location and assuming a standard atmosphere with a lapse rate of -6.5 K/km for the entire troposphere.
+The LAFE data also includes HSRL measurements such as a combined (aerosol plus molecular) backscatter channel signal and a molecular backscatter channel signal, the latter of which was separated out through the use of a rubidium cell as explained in Hayman and Spuler (2017) [4].
+These signals are then used to find the aerosol and molecular backscatter coefficients necessary for calculating the O\textsubscript{2} absorption coefficient $\alpha(r)$. 
+A water vapor DIAL was also present at the LAFE field campaign, so we have an absolute humidity profile with which we may calculate the water vapor mixing ratio $q_{H_2O}(r)$.\\
+\noindent Once the aerosol and molecular backscatter coefficients are found, they are used in the perturbative method of calculating the O\textsubscript{2} absorption coefficient.
+This, along with the water vapor mixing ratio, gives us everything we need to calculate the updated temperature profile from Equation 8.
+
+\subsection{Aerosol and Molecular Backscatter Coefficients}
+The aerosol backscatter coefficient is found using [4]
+
+\begin{equation}
+	\beta_a(r) = \left[ \frac{\hat{S}_c(r)}{\hat{S}_m(r)}-1 \right] \beta_m(r)
+\end{equation}
+
+\noindent where $\hat{S}_c(r)$ and $\hat{S}_m(r)$ are the modified combined and molecular channel observations [4], and $\beta_m(r)$ is the estimated molecular backscatter coefficient, calculated from [8]
+
+\begin{equation}
+	\beta_m(r) = 5.45 \times 10^{-32} \frac{P(r)}{k_B T(r)} \left( \frac{550 \text{ nm}}{\lambda} \right) ^4
+\end{equation}
+
+\noindent where $P(r)$ and $T(r)$ are the pressure (Pa) and temperature (K) profiles that were estimated from surface measurements, $k_B$ is the Boltzmann constant, and $\lambda$ is the HSRL laser wavelength (780 nm).
+
+\subsection{Water Vapor Mixing Ratio}
+
+The water vapor DIAL LAFE data is given as absolute humidity $A(r)$ (g/m\textsuperscript{3}) and we need the mixing ratio $q_{H_2O} = m_{wv}/m_d$ where $m_{wv}$ is the mass of water vapor and $m_{d}$ is the mass of dry air.
+The density of dry air may be calculated from the ideal gas law as a function of temperature and pressure
+
+\begin{equation}
+	\rho_d(r) = \frac{P(r)}{R_d T(r)}
+\end{equation}
+
+\noindent where $R_d = 287.058 \frac{\text{J}}{\text{kg K}}$ is the specific gas constant for dry air. The water vapor mixing ratio is then found to be
+
+\begin{equation}
+	q_{H_2O}(r) = \frac{A(r)}{\rho_d(r)}.
+\end{equation}
+
+\section{Absorption Coefficient}
+
+With the initial temperature and pressure profiles and aerosol and molecular backscatter coefficients found, we model the O\textsubscript{2} DIAL and apply the perturbative method in order to retrieve an initial estimate of the absorption coefficient.
+
+\section{Iterative Temperature Retrieval}
+
+\section{Conclusions}
+%\section{Goals}
+%One of my goals for this project is to see how many iterations are required for the temperature profile to converge given a certain departure from the actual profile. Another related matter I'd be interested in is how far from the actual temperature profile I can take the initial guess.
+%\section{Introduction}
+%Temperature is an important parameter when considering the state of the atmosphere and its processes. Retrieving a temperature profile of the atmosphere requires ancillary information about the atmosphere such as aerosol, pressure and water vapor profiles. Sufficient pressure and aerosol models may be used, but water vapor is highly variableThe LAFE (Land Atmosphere Feedback Experiment) was a field campaign that included instruments that measured aerosol and water vapor profiles. These may be modeled or Temperature profiles may be retrieved through determining the temperature sensitive absorption coefficient of an atmospheric molecule with a known mixing ratio (number of molecules of gas divided by total number of molecules of air, given as a percentage), such as oxygen. The measurement of the absorption coefficient is accomplished using the DIAL technique, which involves measuring the backscatter signal of two closely spaced wavelengths. The first wavelength is associated with a molecular absorption feature and is known as the online wavelength, while the second one is insensitive to the absorption feature and is known as the offline wavelength.
+% \par
+%\begin{figure}[H]
+%	\includegraphics[width=\linewidth]{}
+%	\caption{}
+%\end{figure}
+
+
+\section{References}
+\begin{enumerate}
+\item J. Bosenberg, "Ground-based differential absorption lidar for water-vapor and temperature profiling: methodology," Appl Optics 37, 3845-3860 (1998).
+
+\item C. E. Bunn, K. S. Repasky, M. Hayman, R. A. Stillwell, and S. M. Spuler, Montana State University, Bozeman, MT and National Center for Atmospheric Research, Boulder, CO, are preparing a manuscript to be called "Perturbative solution to the two component atmosphere DIAL equation for improving the accuracy of the retrieved absorption coefficient."
+
+\item M. Z. Jacobson, \textit{Fundamentals of atmospheric modeling}, (Cambridge university press, 2005).
+
+\item M. Hayman and S. Spuler, "Demonstration of a diode-laser-based high spectral resolution lidar (HSRL) for quantitative profiling of clouds and aerosols," Opt Express 25, A1096-A1110 (2017).
+
+\item S. M. Spuler, K. S. Repasky, B. Morley, D. Moen, M. Hayman, and A. R. Nehrir, "Field-deployable diode-laser-based differential absorption lidar (DIAL) for profiling water vapor," Atmos Meas Tech 8, 1073-1087 (2015).
+
+\item C. L. Korb and C. Y. Weng, "A Theoretical-Study of a 2-Wavelength Lidar Technique for the Measurement of Atmospheric-Temperature Profiles," J Appl Meteorol 21, 1346-1355 (1982).
+
+\item F. A. Theopold and J. Bosenberg, "Differential Absorption Lidar Measurements of Atmospheric-Temperature Profiles - Theory and Experiment," J Atmos Ocean Tech 10, 165-179 (1993).
+
+\item R. M. Measures, \textit{Laser Remote Sensing} (Wiley-Interscience, 1984).
+\end{enumerate}
+
+
+	%\bibliographystyle{unsrt}
+	%\bibliography{sources}
+\end{document}
