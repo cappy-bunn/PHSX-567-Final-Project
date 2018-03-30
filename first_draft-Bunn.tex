@@ -55,6 +55,10 @@
 \fancyhead[C]{PHSX567 Final Project First Draft $\bullet$ \today } % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
+\usepackage[numbers]{natbib}
+
+\bibliographystyle{plainnat}
+
 %\usepackage{fixltx2e} % Added by Cappy
 
 
@@ -87,9 +91,9 @@
 %----------------------------------------------------------------------------------------
 \section{Abstract}
 Temperature is an important parameter when considering the state of the atmosphere and its processes. 
-A method of atmospheric temperature retrieval discussed in Bosenberg [1] involves using differential absorption lidar (DIAL) as a means of finding the temperature sensitive absorption coefficient of a molecule with a known mixing ratio, such as diatomic oxygen. 
+A method of atmospheric temperature retrieval discussed in \citet{Bosenberg1998} involves using differential absorption lidar (DIAL) as a means of finding the temperature sensitive absorption coefficient of a molecule with a known mixing ratio, such as diatomic oxygen. 
 However the absorption coefficient has a non-linear dependence on temperature and therefore cannot be solved analytically; an iterative approach must then be used to complete the temperature retrieval.
- The accuracy of this retrieval method has been demonstrated using a modeled atmosphere [2]. 
+ The accuracy of this retrieval method has been demonstrated using a modeled atmosphere in \citet{Bunn2018}. 
  This paper will use this same retrieval method, but applying it to atmospheric data collected from the LAFE (Land Atmosphere Feedback Experiment) field campaign, which took place in August of 2017 at the Southern Great Plains atmospheric observatory in Oklahoma. 
  The data from this experiment includes aerosol and molecular backscatter measurements from an HSRL as well as water vapor profiles from a water vapor DIAL, which are ancillary information necessary for finding the absorption coefficient and temperature profiles.
 
@@ -221,26 +225,26 @@ With the initial temperature and pressure profiles and aerosol and molecular bac
 %	\includegraphics[width=\linewidth]{}
 %	\caption{}
 %\end{figure}
+\bibliography{sources}
 
-
-\section{References}
-\begin{enumerate}
-\item J. Bosenberg, "Ground-based differential absorption lidar for water-vapor and temperature profiling: methodology," Appl Optics 37, 3845-3860 (1998).
-
-\item C. E. Bunn, K. S. Repasky, M. Hayman, R. A. Stillwell, and S. M. Spuler, Montana State University, Bozeman, MT and National Center for Atmospheric Research, Boulder, CO, are preparing a manuscript to be called "Perturbative solution to the two component atmosphere DIAL equation for improving the accuracy of the retrieved absorption coefficient."
-
-\item M. Z. Jacobson, \textit{Fundamentals of atmospheric modeling}, (Cambridge university press, 2005).
-
-\item M. Hayman and S. Spuler, "Demonstration of a diode-laser-based high spectral resolution lidar (HSRL) for quantitative profiling of clouds and aerosols," Opt Express 25, A1096-A1110 (2017).
-
-\item S. M. Spuler, K. S. Repasky, B. Morley, D. Moen, M. Hayman, and A. R. Nehrir, "Field-deployable diode-laser-based differential absorption lidar (DIAL) for profiling water vapor," Atmos Meas Tech 8, 1073-1087 (2015).
-
-\item C. L. Korb and C. Y. Weng, "A Theoretical-Study of a 2-Wavelength Lidar Technique for the Measurement of Atmospheric-Temperature Profiles," J Appl Meteorol 21, 1346-1355 (1982).
-
-\item F. A. Theopold and J. Bosenberg, "Differential Absorption Lidar Measurements of Atmospheric-Temperature Profiles - Theory and Experiment," J Atmos Ocean Tech 10, 165-179 (1993).
-
-\item R. M. Measures, \textit{Laser Remote Sensing} (Wiley-Interscience, 1984).
-\end{enumerate}
+%\section{References}
+%\begin{enumerate}
+%\item J. Bosenberg, "Ground-based differential absorption lidar for water-vapor and temperature profiling: methodology," Appl Optics 37, 3845-3860 (1998).
+%
+%\item C. E. Bunn, K. S. Repasky, M. Hayman, R. A. Stillwell, and S. M. Spuler, Montana State University, Bozeman, MT and National Center for Atmospheric Research, Boulder, CO, are preparing a manuscript to be called "Perturbative solution to the two component atmosphere DIAL equation for improving the accuracy of the retrieved absorption coefficient."
+%
+%\item M. Z. Jacobson, \textit{Fundamentals of atmospheric modeling}, (Cambridge university press, 2005).
+%
+%\item M. Hayman and S. Spuler, "Demonstration of a diode-laser-based high spectral resolution lidar (HSRL) for quantitative profiling of clouds and aerosols," Opt Express 25, A1096-A1110 (2017).
+%
+%\item S. M. Spuler, K. S. Repasky, B. Morley, D. Moen, M. Hayman, and A. R. Nehrir, "Field-deployable diode-laser-based differential absorption lidar (DIAL) for profiling water vapor," Atmos Meas Tech 8, 1073-1087 (2015).
+%
+%\item C. L. Korb and C. Y. Weng, "A Theoretical-Study of a 2-Wavelength Lidar Technique for the Measurement of Atmospheric-Temperature Profiles," J Appl Meteorol 21, 1346-1355 (1982).
+%
+%\item F. A. Theopold and J. Bosenberg, "Differential Absorption Lidar Measurements of Atmospheric-Temperature Profiles - Theory and Experiment," J Atmos Ocean Tech 10, 165-179 (1993).
+%
+%\item R. M. Measures, \textit{Laser Remote Sensing} (Wiley-Interscience, 1984).
+%\end{enumerate}
 
 
 	%\bibliographystyle{unsrt}
