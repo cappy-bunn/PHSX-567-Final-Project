@@ -114,23 +114,23 @@ The effective absorption coefficients for outgoing and return signals (indicated
 
 \begin{align}
 	\alpha_{u,eff,1}(r) &= \frac{\int h_1(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int h_1(\nu) T_{m,1}(\nu,r) d\nu}\\
-	\alpha_{d,eff,1}(r) &= \frac{\int g(\nu,r) E(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int g(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}
+	\alpha_{d,eff,1}(r) &= \frac{\int g_1(\nu,r) E(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}
 \end{align}
 
 \noindent where $h_1(\nu)$ is the online laser lineshape, $\alpha_{m,1}(\nu,r)$ is the molecular absorption coefficient, $T_{m,1}(\nu,r) = \exp\left[-\int^r_0 \alpha_{m,1}(\nu,r')dr'\right]$ is the one-way transmission due to molecular absorption, and $E(\nu)$ is the DIAL receiver spectral filter transmission function. 
 In Equation 3, the term
 
 \begin{equation}
-	g(\nu,r) = \frac{\beta_a(r)}{\beta(r)} h_{HSRL}(\nu) + \frac{\beta_m(r)}{\beta(r)} (h_{HSRL}(\nu)\ast l(\nu,r))
+	g_1(\nu,r) = \frac{\beta_a(r)}{\beta(r)} h_{1}(\nu) + \frac{\beta_m(r)}{\beta(r)} (h_{1}(\nu)\ast l(\nu,r))
 \end{equation}
-\noindent is the lineshape of the backscattered light where $\beta_a(r)$, $\beta_m(r)$, and $\beta(r)$ are the aerosol, molecular, and total backscatter profiles respectively, $h_{HSRL}$ is the HSRL laser lineshape, and $l(\nu,r)$ is the Doppler-broadened lineshape. 
+\noindent is the lineshape of the backscattered light where $\beta_a(r)$, $\beta_m(r)$, and $\beta(r)$ are the aerosol, molecular, and total backscatter profiles respectively, and $l(\nu,r)$ is the Doppler-broadened lineshape. 
 The effective absorption coefficients for the offline wavelength, $\alpha_{u,eff,2}(r)$ and $\alpha_{d,eff,2}(r)$, have the same form as Equations 2 and 3.
 \\
 \\
 The terms $G_1(r)$ and $G_2(r)$ are correction terms that help account for changes in the spectral distribution due to Doppler broadening of the scattered return signal, given by
 
 \begin{equation}
-	G_1(r) = \frac{\int \frac{dg(\nu,r)}{dr} E(\nu) T_{m,1}(\nu,r) d\nu}{\int g(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}.
+	G_1(r) = \frac{\int \frac{dg_1(\nu,r)}{dr} E(\nu) T_{m,1}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}.
 \end{equation}
 \noindent The correction term $G_2(r)$ is written in the same form for the offline wavelength.
 \\
