@@ -1,0 +1,23 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[B\"{o}senberg(1998)]{Bosenberg1998}
+Jens B\"{o}senberg.
+\newblock Ground-based differential absorption lidar for water-vapor and
+  temperature profiling: methodology.
+\newblock \emph{Appl. Opt.}, 37\penalty0 (18):\penalty0 3845--3860, Jun 1998.
+\newblock \doi{10.1364/AO.37.003845}.
+\newblock URL \url{http://ao.osa.org/abstract.cfm?URI=ao-37-18-3845}.
+
+\bibitem[Bunn et~al.(in prep.)Bunn, Repasky, Hayman, Stillwell, and
+  Spuler]{Bunn2018}
+C.~E. Bunn, K.~S. Repasky, M.~Hayman, R.~A. Stillwell, and S.~M. Spuler.
+\newblock Perturbative solution to the two component atmosphere dial equation
+  for improving the accuracy of the retrieved absorption coefficient.
+\newblock in prep.
+
+\end{thebibliography}
