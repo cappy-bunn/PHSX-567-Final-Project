@@ -13,12 +13,12 @@ Jens B\"{o}senberg.
 \newblock \doi{10.1364/AO.37.003845}.
 \newblock URL \url{http://ao.osa.org/abstract.cfm?URI=ao-37-18-3845}.
 
-\bibitem[Bunn et~al.(in prep.)Bunn, Repasky, Hayman, Stillwell, and
-  Spuler]{Bunn2018}
+\bibitem[Bunn et~al.(Manuscript submitted for publication.)Bunn, Repasky,
+  Hayman, Stillwell, and Spuler]{Bunn2018}
 C.~E. Bunn, K.~S. Repasky, M.~Hayman, R.~A. Stillwell, and S.~M. Spuler.
-\newblock Perturbative solution to the two component atmosphere dial equation
+\newblock Perturbative solution to the two component atmosphere {DIAL} equation
   for improving the accuracy of the retrieved absorption coefficient.
-\newblock in prep.
+\newblock Manuscript submitted for publication.
 
 \bibitem[Jacobson(2001)]{Jacobson1999}
 Mark Jacobson.
@@ -30,7 +30,7 @@ Mark Jacobson.
 \bibitem[Hayman and Spuler(2017)]{Hayman2017}
 Matthew Hayman and Scott Spuler.
 \newblock Demonstration of a diode-laser-based high spectral resolution lidar
-  (hsrl) for quantitative profiling of clouds and aerosols.
+  ({HSRL}) for quantitative profiling of clouds and aerosols.
 \newblock \emph{Opt. Express}, 25\penalty0 (24):\penalty0 A1096--A1110, Nov
   2017.
 \newblock \doi{10.1364/OE.25.0A1096}.
@@ -41,7 +41,7 @@ Matthew Hayman and Scott Spuler.
   Nehrir]{Spuler2015}
 S.~M. Spuler, K.~S. Repasky, B.~Morley, D.~Moen, M.~Hayman, and A.~R. Nehrir.
 \newblock Field-deployable diode-laser-based differential absorption lidar
-  (dial) for profiling water vapor.
+  ({DIAL}) for profiling water vapor.
 \newblock \emph{Atmospheric Measurement Techniques}, 8\penalty0 (3):\penalty0
   1073--1087, 2015.
 \newblock \doi{10.5194/amt-8-1073-2015}.

@@ -1,0 +1,299 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.3 (9/9/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside]{article}
+
+\usepackage{graphicx}
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+\usepackage{amsmath}
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{PHSX567 Final Project First Draft $\bullet$ \today } % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+\usepackage{breqn}
+
+\usepackage[numbers]{natbib}
+
+\bibliographystyle{unsrtnat}
+
+%\usepackage{fixltx2e} % Added by Cappy
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{18pt}{10pt}\selectfont\textbf{Improving the accuracy of retrieved number density profiles from the LAFE field campaign using a perturbative solution to the DIAL equation}} % Article title
+\author{
+\large
+\textsc{Catharine E. Bunn}\\[2mm] % Your name
+\normalsize Montana State University \\ % Your institution
+\normalsize \href{mailto:catharine.bunn@montana.edu}{catharine.bunn@montana.edu} % Your email address
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\noindent A perturbative solution to the differential absorption lidar (DIAL) equation has been developed by \citet{Bunn2018} which allows for high resolution temperature profile retrievals and may improve the accuracy of molecular number density profiles of atmospheric constituents.
+This paper investigates the use of this perturbative solution for the purpose of improving number density profiles, specifically demonstrating improved water vapor profiles obtained from the LAFE (Land Atmosphere Feedback Experiment) field campaign, which took place in August of 2017 at the Southern Great Plains atmospheric observatory in Oklahoma.
+The data from this experiment includes backscatter signals from a water vapor DIAL as well as aerosol and molecular backscatter measurements from an HSRL \cite{Hayman2017}, which are ancillary information for temperature and improved number density retrievals.
+\end{abstract}
+
+\section{Introduction}
+The DIAL method of temperature profiling relies on the measurement of the temperature dependent absorption coefficient of a molecule with a known mixing ratio (number of molecules of gas divided by total number of molecules of air). 
+The absorption lines of O\textsubscript{2} in the near-infrared around 770 nm are suitably temperature sensitive \cite{Bosenberg1998} and the mixing ratio of atmospheric O\textsubscript{2} is reliably stable, known to be 20.95\% \cite{Jacobson1999}.
+Similarly, water vapor number density profiles may be retrieved by taking advantage of a temperature insensitive absorption feature, such as the line near 828 nm \cite{Nehrir2009}.
+Using the DIAL technique, the absorption coefficient is found by measuring the range resolved backscatter signal from two closely spaced wavelengths; one associated with the absorption feature (known as the online wavelength) and the other is minimally affected by it (known as the offline wavelength).
+Comparing these two signals using the general DIAL equation yields accurate water vapor density profiles \cite{Nehrir2009}, however \citet{Bosenberg1998} shows that Doppler broadening of the Rayleigh scattered light must be accounted for when calculating temperature retrievals.
+\citet{Theopold1993} and \citet{Bosenberg1998} introduce a formulation for the DIAL technique that takes into account the spectral distribution of the transmitted and backscattered light, including addressing the influence of the Doppler-broadened Rayleigh backscattered signal. A perturbative solution to this DIAL equation has been proposed by \citet{Bunn2018} which allows for high resolution temperature retrievals that have accounted for this broadening in the elastically scattered light, and may also be used to improve the accuracy of retrieved number density profiles. The latter use of this solution will be investigated using atmospheric data from the LAFE field campaign.
+
+\section{Perturbative Solution to the DIAL equation}
+
+The solution proposed by \citet{Bunn2018} relies on ancillary profiles of the aerosol and molecular backscatter coefficients in order to retrieve the range resolved absorption coefficient of the molecule of interest. These aerosol and molecular backscatter coefficients are obtained by processing data provided by the HSRL \cite{Hayman2017} that was present at the LAFE field campaign. The condensed process of determining the backscatter coefficients from the HSRL measurements will be described in section III.  For now, starting with the DIAL equation introduced by \citet{Bosenberg1998}, the development of the perturbative solution will be briefly explained.\\
+\\
+The DIAL equation used to calculate the absorption coefficient is given by \cite{Bosenberg1998}
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -\alpha_{u,eff,1}(r) + \alpha_{u,eff,2}(r) -\alpha_{d,eff,1}(r) +\alpha_{d,eff,2}(r) + G_1(r) - G_2(r)
+\end{equation}
+
+\noindent where $N(r)$ is the return signal from range $r$ and the subscripts 1 and 2 indicate online and offline wavelengths respectively. 
+The differential range $\Delta R = \frac{c \tau}{2}$ is the bin size where $c$ is the speed of light and $\tau$ is the pulse duration. 
+The effective absorption coefficients for outgoing and return signals (indicated by subscripts $u$ and $d$ respectively) for the online wavelength are given by
+
+\begin{align}
+	\alpha_{u,eff,1}(r) &= \frac{\int h_1(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int h_1(\nu) T_{m,1}(\nu,r) d\nu}\\
+	\alpha_{d,eff,1}(r) &= \frac{\int g_1(\nu,r) E(\nu) \alpha_{m,1}(\nu,r) T_{m,1}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}
+\end{align}
+
+\noindent where $h_1(\nu)$ is the online laser lineshape, $\alpha_{m,1}(\nu,r)$ is the online molecular absorption coefficient, $T_{m,1}(\nu,r) = \exp\left[-\int^r_0 \alpha_{m,1}(\nu,r')dr'\right]$ is the one-way transmission due to molecular absorption, and $E(\nu)$ is the DIAL receiver spectral filter transmission function. 
+In equation 3, the term
+
+\begin{equation}
+	g_1(\nu,r) = \frac{\beta_a(r)}{\beta(r)} h_{1}(\nu) + \frac{\beta_m(r)}{\beta(r)} (h_{1}(\nu)\ast l(\nu,r))
+\end{equation}
+\noindent is the lineshape of the backscattered light where $\beta_a(r)$, $\beta_m(r)$, and $\beta(r)$ are the aerosol, molecular, and total backscatter profiles respectively, and $l(\nu,r)$ is the Doppler-broadened lineshape. 
+The effective absorption coefficients for the offline wavelength, $\alpha_{u,eff,2}(r)$ and $\alpha_{d,eff,2}(r)$, have the same form as equations 2 and 3.\\
+\\
+Referring back to equation 1, the terms $G_1(r)$ and $G_2(r)$ are correction terms that help account for changes in the spectral distribution due to Doppler broadening of the scattered return signal, given by
+
+\begin{equation}
+	G_1(r) = \frac{\int \frac{dg_1(\nu,r)}{dr} E(\nu) T_{m,1}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,1}(\nu,r) d\nu}.
+\end{equation}
+\noindent The correction term $G_2(r)$ is written in the same form for the offline wavelength.\\
+\\
+At this point some approximations may be made: the laser linewidth may be treated as a delta function since it is very narrow compared to the linewidth of the absorption feature; and $G_2(r)$ is set to zero due to the insignificant molecular absorption at the offline wavelength.
+The DIAL equation is now written as
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -\alpha_{m,1}(r) -\alpha_{d,eff,1}(r) +2\alpha_{m,2}(r) + G_1(r)
+\end{equation}
+
+\noindent The frequency dependent online molecular absorption coefficient $\alpha_{m,1}(\nu,r)$ in equation 3 may be re-expressed as $\alpha_{m,1}(\nu,r) = \alpha_{m,1}(r) \frac{f(\nu-\nu_1,r)}{f(\nu_1,r)}$ where $\frac{f(\nu-\nu_1,r)}{f(\nu_1,r)}$ is the online absorption lineshape when accounting for the fact that the online wavelength isn't centered on the absorption feature (it is slightly off to the side to allow a higher SNR).
+Using this definition, we may then express the effective online absorption coefficient for returning light as
+
+\begin{equation}
+	\alpha_{d,eff,1}(r) = \alpha_{m,1}(r) \frac{\int g_1(\nu,r)E(\nu)(1-1+\frac{f(\nu-\nu_1,r)}{f(\nu_1,r)}) T_m(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_m(\nu,r) d\nu} = \alpha_{m,1}(r)(1-W(r))
+\end{equation}
+
+\noindent where 
+
+\begin{equation}
+	W(r) = \frac{\int g_1(\nu,r) E(\nu) (1- f(\nu,r)) T_m(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_m(\nu,r) d\nu}
+\end{equation}
+
+\noindent Near the online frequency is where most the backscatter will occur and since the absorption lineshape peaks at a value of 1 at this frequency, then $W(r)$ must be much smaller than 1.
+The DIAL equation may now be written as
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -2\alpha_{m,1}(r) +2\alpha_{m,2}(r) + \alpha_{m,1}(r)W(r) + G_1(r).
+\end{equation}
+
+\noindent We are trying to retrieve the absorption coefficient $\alpha_{m,1}(r)$ from the DIAL equation, but it cannot be solved for directly, so a perturbative solution based on the expansion of the absorption coefficient is used:
+
+\begin{equation}
+	\alpha_{m,1}(r) = \alpha_{0th}(r) + \Delta \alpha_{1st}(r) + \Delta \alpha_{2nd}(r)
+\end{equation}
+
+\noindent where $\alpha_{0th}(r)$ is the zeroth order molecular absorption coefficient and $\Delta \alpha_{1st}(r)$ and $\Delta \alpha_{2nd}(r)$ are the first and second order corrections.
+As stated above, $W(r)$ may be treated as small a correction term and \citet{Bosenberg1998} treats $G_1(r)$ as a correction term as well.
+Both $G_1(r)$ and $W(r)$ depend on the atmospheric transmission $T_m(\nu,r)$ which in turn depends on the absorption coefficient, which we have expanded in equation 10.
+Explicitly including this expansion (up to the first order term since $G_1(r)$ and $W(r)$ are already first order corrections) in the atmospheric transmission leads to the following equations comprised of first and second order terms:
+
+\begin{align}
+\nonumber	G_1(r) = &\frac{\int \frac{dg_1(\nu,r)}{dr} E(\nu) T_{m,0th}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} +\\
+\nonumber	 &\Bigg[ \frac{\int \frac{dg_1(\nu,r)}{dr} E(\nu) T_{m,0th}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} \frac{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) [1- T_{m,1st}(\nu,r)] d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} -\\
+	 &\frac{\int \frac{dg_1(\nu,r)}{dr} E(\nu) T_{m,0th}(\nu,r) [1- T_{m,1st}(\nu,r)] d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} \Bigg];
+\end{align}
+
+\begin{align}
+\nonumber	W(r) = &\frac{\int g_1(\nu,r) E(\nu) \left(1 - \frac{f(\nu - \nu_1,r)}{f(\nu_1,r)}\right) T_{m,0th}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} +\\
+\nonumber	 &\Bigg[ \frac{\int g_1(\nu,r) E(\nu) \left(1 - \frac{f(\nu - \nu_1,r)}{f(\nu_1,r)}\right) T_{m,0th}(\nu,r) d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} \frac{\int g_1(\nu,r) E(\nu) \left(1 - \frac{f(\nu - \nu_1,r)}{f(\nu_1,r)}\right) T_{m,0th}(\nu,r) [1- T_{m,1st}(\nu,r)] d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} -\\
+&\frac{\int g_1(\nu,r) E(\nu) \left(1 - \frac{f(\nu - \nu_1,r)}{f(\nu_1,r)}\right) T_{m,0th}(\nu,r) [1- T_{m,1st}(\nu,r)] d\nu}{\int g_1(\nu,r) E(\nu) T_{m,0th}(\nu,r) d\nu} \Bigg].
+\end{align}
+
+\noindent In both equation 11 and 12 the first term on the right hand side is the first order correction and the term in square brackets is the second order correction such that
+
+\begin{align}
+	G_1(r) &= \Delta G_{1st}(r) + \Delta G_{2nd}(r); \\
+	W(r) &= \Delta W_{1st}(r) + \Delta W_{2nd}(r).
+\end{align}
+
+\noindent The DIAL equation may now be written as
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -\Big(\alpha_{0th}(r) + \Delta \alpha_{1st}(r) + \Delta \alpha_{2nd}(r)\Big) \Big(2 - \Delta W_{1st}(r) - \Delta W_{2nd}(r)\Big) + 2 \alpha_{m,2}(r) + \Delta G_{1st}(r) + \Delta G_{2nd}(r).
+\end{equation}
+
+\noindent If the zeroth order terms are collected, we simply get the standard DIAL equation back:
+
+\begin{equation}
+	\frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{\Delta R} = -2 \alpha_{0th}(r) + 2 \alpha_{m,2}(r)
+\end{equation}
+
+\noindent The equation for the zeroth order absorption coefficient is then
+
+\begin{equation}
+	\alpha_{0th}(r) = \alpha_{m,2}(r) - \frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{2 \Delta R}.
+\end{equation}
+
+\noindent In practice, the offline molecular absorption coefficient is negligible, so we make the approximation that $\alpha_{0th}(r)$ is found simply by using the water vapor DIAL return signals:
+
+\begin{equation}
+	\alpha_{0th}(r) \approx - \frac{ln\left(\frac{N_1(r+\Delta R) N_2(r)}{N_1(r) N_2(r+\Delta R)}\right)}{2 \Delta R}.
+\end{equation}
+
+\noindent The first and second order terms may each be collected as well, resulting in the equations for the first and second order molecular absorption coefficient correction terms:
+
+\begin{align}
+	&\Delta \alpha_{1st}(r) = \frac{1}{2} \Big( \alpha_{0th}(r) \Delta W_{1st}(r) + \Delta G_{1st}(r) \Big)\\
+	&\Delta \alpha_{2nd}(r) = \frac{1}{2} \Big( \Delta \alpha_{1st}(r) \Delta W_{1st}(r) + \alpha_{0th} (r) \Delta W_{2nd}(r) + \Delta G_{2nd}(r) \Big).
+\end{align}
+
+\section{LAFE Data Processing}
+
+The atmospheric returns provided by the LAFE field campaign include backscatter signals from a water vapor DIAL as well as aerosol and molecular backscatter measurements from an HSRL.
+The water vapor backscatter measurements will be used in the calculation of the zeroth order absorption coefficient $\alpha_{0th}(r)$ in equation 18.
+The aerosol and molecular backscatter signals are used to calculate the aerosol and molecular backscatter coefficients, which are then used in equation 4 in the calculation of the online and offline backscatter lineshapes $g_1(\nu,r)$ and $g_2(\nu,r)$.
+A brief explanation of the calculation of the aerosol and molecular backscatter coefficients is given next.\\
+\\
+The aerosol backscatter coefficient is found using \cite{Hayman2017}
+
+\begin{equation}
+	\beta_a(r) = \left[ \frac{\hat{S}_c(r)}{\hat{S}_m(r)}-1 \right] \beta_m(r)
+\end{equation}
+
+\noindent where $\hat{S}_c(r)$ and $\hat{S}_m(r)$ are the combined and molecular channel backscatter observations \cite{Hayman2017}, and $\beta_m(r)$ is the estimated molecular backscatter coefficient, which is calculated from \cite{Measures1984}
+
+\begin{equation}
+	\beta_m(r) = 5.45 \times 10^{-32} \frac{P(r)}{k_B T(r)} \left( \frac{550 \text{ nm}}{\lambda} \right) ^4
+\end{equation}
+
+\noindent where $P(r)$ and $T(r)$ are the pressure (Pa) and temperature (K) profiles that were estimated from surface measurements take at the instruments' location, $k_B$ is the Boltzmann constant, and $\lambda$ is the HSRL laser wavelength (780 nm).\\
+\\
+\textbf{Still need to:}\\
+$\bullet$ Better understand the absorption side-line tuning (first mentioned above equation 7); the temperature retrieval method uses the center of the oxygen absorption feature, but water vapor uses the side.\\
+$\bullet$ Calculate zeroth order absorption coefficient from water vapor DIAL retrievals.\\
+$\bullet$ Calculate at least the first order correction.\\
+$\bullet$ Compare zeroth order to perturbative solution.\\
+$\bullet$ Error analysis and conclusions.
+
+\section{Number Density Comparison}
+
+\section{Error Analysis}
+
+\section{Conclusions}
+
+\bibliography{sources}
+
+%High spatial and temporal resolution thermodynamic profiles of the lower troposphere are crucial for weather and climate research studies. Atmospheric properties of interest include water vapor and temperature profiles, which may be obtained through the retrieval of the absorption coefficient by a method such as differential absorption lidar (DIAL). A perturbative solution to the DIAL equation is applied to real world atmospheric data collected from the LAFE (Land Atmosphere Feedback Experiment) field campaign. The perturbative solution used here was developed as a means to retrieve the absorption coefficient from differential absorption lidar (DIAL) measurements while accounting for Doppler-broadened Rayleigh scattering, Mie scattering off of aerosols, and spectroscopic details of the absorption feature.
+
+%The general DIAL equation is given as
+
+%\begin{equation}
+%N_d(r) = \frac{1}{2 \Delta r (\sigma_1(r) - \sigma_2(r))} \ln \left[ \frac{N_1(r) %N_2(r+ \Delta r)}{N_1(r+ \Delta r) N_2(r)} \right]
+%\end{equation}
+
+%\noindent where the subscripts 1 and 2 correspond to the online and offline wavelengths respectively; $N_d(r)$ is the molecular number density profile of the molecule of interest, $N(r)$ is the range resolved backscatter signal, $\sigma(r)$ is the molecular absorption cross section, and $\Delta r = \frac{c \tau}{2}$ is the bin size, where $c$ is the speed of light and $\tau$ is the pulse duration.
+
+%\section{References}
+%\begin{enumerate}
+%\item J. Bosenberg, "Ground-based differential absorption lidar for water-vapor and temperature profiling: methodology," Appl Optics 37, 3845-3860 (1998).
+%
+%\item C. E. Bunn, K. S. Repasky, M. Hayman, R. A. Stillwell, and S. M. Spuler, Montana State University, Bozeman, MT and National Center for Atmospheric Research, Boulder, CO, are preparing a manuscript to be called "Perturbative solution to the two component atmosphere DIAL equation for improving the accuracy of the retrieved absorption coefficient."
+%
+%\item M. Z. Jacobson, \textit{Fundamentals of atmospheric modeling}, (Cambridge university press, 2005).
+%
+%\item M. Hayman and S. Spuler, "Demonstration of a diode-laser-based high spectral resolution lidar (HSRL) for quantitative profiling of clouds and aerosols," Opt Express 25, A1096-A1110 (2017).
+%
+%\item S. M. Spuler, K. S. Repasky, B. Morley, D. Moen, M. Hayman, and A. R. Nehrir, "Field-deployable diode-laser-based differential absorption lidar (DIAL) for profiling water vapor," Atmos Meas Tech 8, 1073-1087 (2015).
+%
+%\item C. L. Korb and C. Y. Weng, "A Theoretical-Study of a 2-Wavelength Lidar Technique for the Measurement of Atmospheric-Temperature Profiles," J Appl Meteorol 21, 1346-1355 (1982).
+%
+%\item F. A. Theopold and J. Bosenberg, "Differential Absorption Lidar Measurements of Atmospheric-Temperature Profiles - Theory and Experiment," J Atmos Ocean Tech 10, 165-179 (1993).
+%
+%\item R. M. Measures, \textit{Laser Remote Sensing} (Wiley-Interscience, 1984).
+%\end{enumerate}
+
+
+	%\bibliographystyle{unsrt}
+	%\bibliography{sources}
+\end{document}
